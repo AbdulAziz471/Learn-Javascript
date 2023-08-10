@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Hello Aziz! How are you</div>
+    <button id="changeButton">Change Text</button>
+
+    <script>
+        const changeButton = document.getElementById("changeButton");
+        const divElements = document.getElementsByTagName('div');
+
+        changeButton.addEventListener("click", () =>  {
+            for (let i = 0; i < divElements.length; i++) {
+                divElements[i].textContent = "Updated text using getElementsByTagName";
+            }
+        });
+    </script>
+</body>
+</html>
