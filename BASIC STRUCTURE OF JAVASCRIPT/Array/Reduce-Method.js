@@ -15,7 +15,7 @@ console.log(sum); // Outputs: 15
 let num = [3, 7, 1, 9, 2];
 
 let max = num.reduce(function(accumulator, currentValue) {
-    return Math.max(accumulator, currentValue);
+    return Math.min(accumulator, currentValue);
 });
 
 console.log(max); // Outputs: 9

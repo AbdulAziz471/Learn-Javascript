@@ -4,7 +4,8 @@
 // .pop(): Removes the last element from the end of an array.
 
 
-let fruits = ["apple", "banana", "orange"];
+let fruits = ["apple", "banana", ];
 
-fruits.push("grape"); // ["apple", "banana", "orange", "grape"]
-fruits.pop();         // ["apple", "banana", "orange"]
+// fruits.push("grape"); 
+fruits.pop();         
+console.log(fruits);

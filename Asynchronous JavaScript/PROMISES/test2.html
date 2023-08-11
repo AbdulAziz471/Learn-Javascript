@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch User Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch User Data</h1>
+    <label for="userSelect">Select a user:</label>
+    <select id="userSelect">
+        <option value="1">John</option>
+        <option value="2">Jane</option>
+    </select>
+    <button id="fetchButton">Fetch User Data</button>
+    <div id="userData"></div>
+
+    <script>
+        function fetchUserData(userId) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    const users = {
+                        1: { name: "John", age: 25 },
+                        2: { name: "Jane", age: 30 }
+                    };
+
+                    const user = users[userId];
+
+                    if (user) {
+                        resolve(user);
+                    } else {
+                        reject("User not found");
+                    }
+                }, 1000);
+            });
+        }
+
+        const userSelect = document.getElementById("userSelect");
+        const fetchButton = document.getElementById("fetchButton");
+        const userDataDiv = document.getElementById("userData");
+
+        fetchButton.addEventListener("click", function() {
+            const userId = userSelect.value;
+
+            fetchUserData(userId)
+                .then(function(user) {
+                    userDataDiv.textContent = `Name: ${user.name}, Age: ${user.age}`;
+                    userDataDiv.style.color = "green";
+                })
+                .catch(function(error) {
+                    userDataDiv.textContent = `Error: ${error}`;
+                    userDataDiv.style.color = "red";
+                });
+        });
+    </script>
+</body>
+</html>
